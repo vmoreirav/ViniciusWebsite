@@ -5,9 +5,9 @@
 :root {
     --header-height: 3rem;
 
-    --hue-color:230;
+    --hue-color: 215;
 
-    --first-color: hsl(var(--hue-color), 69%, 61%);
+    --first-color: hsl(var(--hue-color), 90%, 61%);
     --first-color-second: hsl(var(--hue-color), 69%, 61%);
     --first-color-alt: hsl(var(--hue-color), 57%, 53%);
     --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
@@ -384,6 +384,12 @@ img {
     align-items: center;
 }
 
+.button--flex--1 {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
 .button--small {
     padding: .75rem 1rem;
 }
@@ -515,34 +521,37 @@ img {
      width: 30%;
  }
  .skills__js {
-     width: 20%;
+     width: 55%;
  }
  .skills__react {
-     width: 20%;
+     width: 40%;
  }
 
 
- .skills__php {
+ .skills__office {
     width: 80%;
 }
-.skills__node {
+.skills__premiere {
     width: 70%;
 }
-.skills__firebase {
-    width: 90%;
+.skills__corelDraw {
+    width: 60%;
 }
-.skills__python {
-    width: 85%;
+.skills__hardware {
+    width: 75%;
 }
 
 
-.skills__figma {
+.skills__english {
     width: 90%;
 }
-.skills__sketch {
+.skills__spanish {
     width: 85%;
 }
-.skills__photoshop {
+.skills__chinese {
+    width: 85%;
+}
+.skills__french {
     width: 85%;
 }
 

@@ -188,3 +188,20 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+
+// SIMPLE MAIL FROM JS
+
+function sendEmail() {
+    Email.send({
+        SecureToken : SECURITY_TOKEN,
+        To : 'vmoreira.m09@gmail.com',
+        From : document.getElementById("email").value,
+        Subject : "New Contact Site Currículo",
+        Body : "Name: " + document.getElementById("name").value
+            + "<br> Email: " + document.getElementById("email").value
+            + "<br> Phone no: " + document.getElementById("place").value
+            + "<br> Message: " + document.getElementById("message").value
+    }).then(
+      message => alert("Message Sent Succsesfully")
+    );
+}
