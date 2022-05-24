@@ -191,17 +191,33 @@ themeButton.addEventListener('click', () => {
 
 // SIMPLE MAIL FROM JS
 
-function sendEmail() {
-    Email.send({
-        SecureToken : SECURITY_TOKEN,
-        To : 'vmoreira.m09@gmail.com',
-        From : document.getElementById("email").value,
-        Subject : "New Contact Site Currículo",
-        Body : "Name: " + document.getElementById("name").value
-            + "<br> Email: " + document.getElementById("email").value
-            + "<br> Phone no: " + document.getElementById("place").value
-            + "<br> Message: " + document.getElementById("message").value
-    }).then(
-      message => alert("Message Sent Succsesfully")
-    );
-}
+let form = document.getElementById("my-form");
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      let status = document.getElementById("status");
+      let data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          status.innerHTML = "Thanks for your submission!";
+          form.reset()
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            } else {
+              status.innerHTML = "Oops! There was a problem submitting your form"
+            }
+          })
+        }
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
